@@ -1,0 +1,13 @@
+.mapWrapper {
+  width: 600px;
+  height: 600px;
+  position: relative;
+}
+.marker {
+  width: 50px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+}

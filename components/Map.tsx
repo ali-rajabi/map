@@ -4,7 +4,9 @@ import Image from 'next/image';
 
 import MapSearchInput from './MapSearchInput';
 import MapEvents from './MapEvents';
+
 import 'leaflet/dist/leaflet.css';
+import styles from './Map.module.css';
 
 interface Center {
   lat: number;
@@ -19,7 +21,7 @@ const Map: React.FC = () => {
   const { lat, lng } = center;
 
   return (
-    <div className='map-wrapper'>
+    <div className={styles.mapWrapper}>
       <MapSearchInput setCenter={setCenter} />
       <MapContainer center={[lat, lng]} zoom={13}>
         <TileLayer url='https://raster.snappmaps.ir/styles/snapp-style/{z}/{x}/{y}{r}.png' />
@@ -28,7 +30,7 @@ const Map: React.FC = () => {
           alt='Marker'
           width={50}
           height={50}
-          className='marker'
+          className={styles.marker}
         />
         <MapEvents lat={lat} lng={lng} />
       </MapContainer>

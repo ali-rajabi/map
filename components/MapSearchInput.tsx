@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 
+import styles from './MapSearchInput.module.css';
+
 type SetCoordinates = {
   setCenter: (center: { lat: number; lng: number }) => void;
 };
@@ -18,7 +20,7 @@ const MapSearchInput: React.FC<SetCoordinates> = ({ setCenter }) => {
     }
 
     try {
-      const timeOutValue = setTimeout(async () => {
+      const timeOutValue = setTimeout(async (): Promise<void> => {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/search-address?title=${searchValue}`
         );
@@ -37,7 +39,7 @@ const MapSearchInput: React.FC<SetCoordinates> = ({ setCenter }) => {
   };
 
   return (
-    <div className='map-search-wrapper'>
+    <div className={styles.mapSearchWrapper}>
       <input type='text' onChange={searchHandler} value={searchText} />
 
       {!searchText && (
